@@ -122,34 +122,35 @@ img {
   overflow: hidden;
 }
 
-/* Seam: a soft-color overlay at the top edge of each incoming
-   section, tinted with the previous section's background, so the
-   two "windows" blend into each other instead of cutting hard. */
+/* Seam: a soft-color overlay at the top edge of each incoming section,
+   tinted with the previous section's background, so the two "windows"
+   blend into each other instead of cutting on a hard edge. The overlay
+   starts fully opaque (matching the previous section's tone exactly,
+   with no self-background bleeding through right at the boundary) and
+   eases out over several stops — a plain two-stop alpha fade reads as
+   a visible band/line to the eye, so the extra stops soften the curve. */
 .seam {
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-  height: clamp(90px, 18vh, 200px);
+  height: clamp(140px, 26vh, 320px);
   z-index: 5;
   pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    var(--seam-c) 0%,
+    color-mix(in oklab, var(--seam-c) 80%, transparent) 20%,
+    color-mix(in oklab, var(--seam-c) 45%, transparent) 45%,
+    color-mix(in oklab, var(--seam-c) 16%, transparent) 72%,
+    transparent 100%
+  );
 }
 
-.seam-s2 {
-  background: linear-gradient(to bottom, oklch(0.88 0.07 20 / 0.9), transparent);
-}
-
-.seam-s3 {
-  background: linear-gradient(to bottom, oklch(0.985 0.006 20 / 0.85), transparent);
-}
-
-.seam-s4 {
-  background: linear-gradient(to bottom, oklch(0.24 0.03 350 / 0.8), transparent);
-}
-
-.seam-s5 {
-  background: linear-gradient(to bottom, oklch(0.12 0.01 30 / 0.8), transparent);
-}
+.seam-s2 { --seam-c: oklch(0.88 0.07 20); }
+.seam-s3 { --seam-c: oklch(0.985 0.006 20); }
+.seam-s4 { --seam-c: oklch(0.24 0.03 350); }
+.seam-s5 { --seam-c: oklch(0.12 0.01 30); }
 
 #s1 {
   z-index: 1;
