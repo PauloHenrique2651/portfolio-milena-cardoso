@@ -103,6 +103,7 @@ img {
   position: sticky;
   top: 0;
   height: 100vh;
+  height: 100dvh;
   overflow: hidden;
 }
 
@@ -440,6 +441,19 @@ img {
 
 /* Responsive */
 @media (max-width: 860px) {
+  #dot-nav {
+    right: 14px;
+    gap: 10px;
+  }
+
+  #s1 {
+    padding: 32px 20px 24px;
+  }
+
+  .hero-sub {
+    padding: 0 8px;
+  }
+
   #s2 {
     grid-template-columns: 1fr;
   }
@@ -447,12 +461,59 @@ img {
     display: none;
   }
   .about-content {
-    padding: 0 28px;
+    padding: 0 24px;
   }
-  .moment-content {
-    padding: 0 28px 70px;
+  .about-p {
+    max-width: none;
   }
+  .about-title {
+    font-size: clamp(28px, 7vw, 40px);
+  }
+
   #s3 {
-    padding: 24px;
+    padding: 20px;
+  }
+  .interests-chips {
+    gap: 12px;
+  }
+  .chip {
+    padding: 14px 22px;
+    font-size: clamp(15px, 4.5vw, 20px);
+  }
+
+  .moment-content {
+    padding: 0 24px 60px;
+  }
+
+  #s5 {
+    padding: 20px;
+  }
+  .contact-title {
+    font-size: clamp(28px, 8vw, 40px);
+  }
+  .contact-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 340px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .btn {
+    text-align: center;
+    padding: 15px 24px;
+    font-size: 14px;
+  }
+  .contact-footer {
+    margin-top: 48px;
+  }
+}
+
+@media (max-width: 480px) {
+  .avatar {
+    margin-bottom: 16px;
+  }
+  #dot-nav {
+    display: none;
   }
 }
