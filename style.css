@@ -313,18 +313,18 @@ img {
 }
 
 .about-title {
-  margin: 0 0 28px;
+  margin: 0 0 clamp(16px, 3vh, 28px);
   font-family: 'Newsreader', serif;
   font-weight: 500;
-  font-size: clamp(30px, 4vw, 50px);
+  font-size: clamp(28px, 3.6vw, 50px);
   line-height: 1.1;
   color: oklch(0.2 0.02 30);
 }
 
 .about-p {
-  margin: 0 0 20px;
-  font-size: 18px;
-  line-height: 1.75;
+  margin: 0 0 clamp(10px, 1.8vh, 18px);
+  font-size: clamp(15px, 1.7vw, 18px);
+  line-height: 1.6;
   color: oklch(0.4 0.01 30);
   max-width: 460px;
 }
