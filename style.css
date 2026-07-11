@@ -109,8 +109,8 @@ img {
 }
 
 .panel-pause {
-  height: calc(100vh + 60vh);
-  height: calc(100dvh + 60vh);
+  height: calc(100vh + 40vh);
+  height: calc(100dvh + 40vh);
 }
 
 /* Sections */
@@ -572,7 +572,7 @@ img {
     display: none;
   }
   .panel-pause {
-    height: calc(100vh + 35vh);
-    height: calc(100dvh + 35vh);
+    height: calc(100vh + 22vh);
+    height: calc(100dvh + 22vh);
   }
 }
