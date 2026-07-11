@@ -98,6 +98,21 @@ img {
   background: oklch(0.65 0.19 350);
 }
 
+/* Panels: each wraps one sticky section. The extra height on
+   panel-pause holds the section fully pinned for a stretch before
+   the next one starts sliding over it, so the crossfade doesn't
+   feel instantaneous on a fast wheel/trackpad flick. */
+.panel {
+  position: relative;
+  height: 100vh;
+  height: 100dvh;
+}
+
+.panel-pause {
+  height: calc(100vh + 60vh);
+  height: calc(100dvh + 60vh);
+}
+
 /* Sections */
 .section {
   position: sticky;
@@ -105,6 +120,35 @@ img {
   height: 100vh;
   height: 100dvh;
   overflow: hidden;
+}
+
+/* Seam: a soft-color overlay at the top edge of each incoming
+   section, tinted with the previous section's background, so the
+   two "windows" blend into each other instead of cutting hard. */
+.seam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: clamp(90px, 18vh, 200px);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.seam-s2 {
+  background: linear-gradient(to bottom, oklch(0.88 0.07 20 / 0.9), transparent);
+}
+
+.seam-s3 {
+  background: linear-gradient(to bottom, oklch(0.985 0.006 20 / 0.85), transparent);
+}
+
+.seam-s4 {
+  background: linear-gradient(to bottom, oklch(0.24 0.03 350 / 0.8), transparent);
+}
+
+.seam-s5 {
+  background: linear-gradient(to bottom, oklch(0.12 0.01 30 / 0.8), transparent);
 }
 
 #s1 {
@@ -526,5 +570,9 @@ img {
   }
   #dot-nav {
     display: none;
+  }
+  .panel-pause {
+    height: calc(100vh + 35vh);
+    height: calc(100dvh + 35vh);
   }
 }
